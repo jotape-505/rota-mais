@@ -1,0 +1,122 @@
+
+.route-history {
+  width: 100%;
+  margin-top: 24px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.route-history h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.25rem;
+}
+
+.route-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.route-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.route-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.route-history-item strong {
+  color: #1e293b;
+  overflow-wrap: anywhere;
+}
+
+.route-history-item p {
+  margin: 8px 0 4px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.route-history-item small {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.route-history-arrow {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.route-history button {
+  flex-shrink: 0;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #15803d;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.route-history button:hover {
+  background: #166534;
+}
+
+.route-history button:focus-visible {
+  outline: 2px solid #16a34a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .route-history {
+    padding: 14px;
+  }
+
+  .route-history-header,
+  .route-history-item {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .route-history button {
+    width: 100%;
+  }
+}
+
+.route-history-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.route-history .delete-route-button {
+  background: #dc2626;
+}
+
+.route-history .delete-route-button:hover {
+  background: #b91c1c;
+}
+
+@media (max-width: 600px) {
+  .route-history-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,1519 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+
+.navbar {
+  height: 70px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 40px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.user {
+  font-size: 15px;
+  color: #4b5563;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.main-content {
+  padding: 40px;
+}
+
+/* ÁREA DE PESQUISA */
+
+.search-section {
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.search-section h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* INPUTS */
+
+.input-group {
+  margin-bottom: 22px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px 16px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #1f2937;
+
+  font-size: 16px;
+  outline: none;
+
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* BOTÃO */
+
+.route-button {
+  width: 100%;
+  padding: 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;}
+
+.route-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+.route-button:active {
+  transform: translateY(0);
+}
+
+.route-button:hover {
+  background: #1d4ed8;
+}
+
+/* MAPA + ROTAS */
+
+.route-area {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+
+  gap: 25px;
+
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* MAPA */
+
+.map-container {
+  height: 500px;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-placeholder {
+  text-align: center;
+  color: #6b7280;
+}
+
+.map-placeholder span {
+  font-size: 60px;
+}
+
+.map-placeholder h2 {
+  margin: 10px 0;
+}
+
+/* PAINEL DE ROTAS */
+
+.routes-panel {
+  background: #ffffff;
+
+  border-radius: 14px;
+
+  padding: 24px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.routes-panel h2 {
+  margin-bottom: 22px;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  color: #1f2937;
+}
+
+/* CARD */
+
+
+.route-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.route-card:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.route-card.selected {
+  border: 2px solid #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+}
+
+.route-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.route-card-info h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.route-card-info p {
+  margin: 6px 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.route-card button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.route-card button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.route-card button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+.route-card button:disabled {
+  background: #dbeafe;
+  color: #1d4ed8;
+  cursor: default;
+}
+
+.route-selected-label {
+  display: inline-block;
+  margin-left: 6px;
+  color: #1d4ed8;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .route-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px;
+  }
+
+  .route-card button {
+    width: 100%;
+  }
+}
+
+.route-details {
+  margin-top: 25px;
+  padding-top: 22px;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.route-details h2 {
+  margin-bottom: 18px;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  color: #1f2937;
+}
+
+.route-details h3 {
+  margin-bottom: 20px;
+
+  font-size: 18px;
+  color: #2563eb;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item span {
+  color: #6b7280;
+}
+
+.detail-item strong {
+  color: #1f2937;
+}
+
+.search-summary {
+  max-width: 900px;
+  margin: 0 auto 30px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  padding: 20px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-summary h2 {
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.search-summary-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.search-summary-content div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.search-summary-content span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.search-summary-content strong {
+  color: #1f2937;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .search-summary-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.route-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+
+  margin-top: 20px;
+  padding-top: 20px;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.route-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.route-info-item span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.route-info-item strong {
+  color: #1f2937;
+  font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  .route-info {
+    grid-template-columns: 1fr;
+  }
+}
+.route-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.error-message {
+  margin: 16px 0;
+  padding: 14px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+}
+
+.input-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.input-group select:focus {
+  outline: 2px solid #2563eb;
+  border-color: #2563eb;
+}
+
+.input-group select:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Melhorias visuais dos cartões de rota */
+
+.route-card {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.route-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.route-card.selected {
+  border: 2px solid #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+}
+
+.route-card button {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.route-card button:hover {
+  filter: brightness(0.95);
+}
+
+.route-card button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+/* Página de login */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  box-sizing: border-box;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 36px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+.login-logo {
+  margin-bottom: 24px;
+  color: #2563eb;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.login-card h1 {
+  margin: 0 0 10px;
+  color: #0f172a;
+  font-size: 26px;
+  text-align: center;
+}
+
+.login-subtitle {
+  margin-bottom: 28px;
+  color: #64748b;
+  text-align: center;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.login-field label {
+  color: #334155;
+  font-weight: 600;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+.login-field input:focus {
+  outline: 2px solid #93c5fd;
+  border-color: #2563eb;
+}
+
+.login-button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+.login-button:hover {
+  background: #1d4ed8;
+}
+
+.login-footer {
+  margin: 24px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  text-align: center;
+}
+
+.login-message {
+  margin: 16px 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.login-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-links p {
+  margin: 16px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.login-links button {
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-links button:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.login-card form {
+  margin-top: 8px;
+}
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logout-button {
+  padding: 8px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1e293b;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #f1f5f9;
+}
+.profile-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.profile-button:hover {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.profile-panel {
+  position: absolute;
+  top: 70px;
+  right: 24px;
+  z-index: 1000;
+  width: 280px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #1e293b;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.profile-panel h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.profile-avatar {
+  margin: 12px auto;
+  font-size: 48px;
+  text-align: center;
+}
+
+.profile-label {
+  margin-bottom: 4px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.profile-email {
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
+
+.profile-note {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.profile-close {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.profile-close:hover {
+  background: #1d4ed8;
+}
+
+/* ===== ROTA+ | Refinamento visual ===== */
+
+:root {
+  --rota-card-radius: 16px;
+  --rota-transition: 180ms ease;
+}
+
+button {
+  transition:
+    background-color var(--rota-transition),
+    border-color var(--rota-transition),
+    box-shadow var(--rota-transition),
+    transform var(--rota-transition);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+input,
+select,
+textarea {
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  transition:
+    border-color var(--rota-transition),
+    box-shadow var(--rota-transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  outline: none;
+}
+
+.profile-panel,
+.login-card {
+  border-radius: var(--rota-card-radius);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+}
+
+.profile-close,
+.login-button {
+  font-weight: 600;
+  transition:
+    background-color var(--rota-transition),
+    transform var(--rota-transition);
+}
+
+.profile-close:hover,
+.login-button:hover {
+  filter: brightness(0.96);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+  .profile-panel {
+    position: fixed;
+    top: 76px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    max-width: none;
+  }
+
+  .login-card {
+    width: min(100% - 24px, 440px);
+    margin: 12px auto;
+    padding: 24px;
+  }
+}
+
+/* ===== Cabeçalho do ROTA+ ===== */
+
+header {
+  position: relative;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.profile-button {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #334155;
+  font-weight: 600;
+}
+
+.profile-button:hover {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+.logout-button {
+  padding: 9px 14px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fff1f2;
+  color: #be123c;
+  font-weight: 600;
+}
+
+.logout-button:hover {
+  background: #ffe4e6;
+  border-color: #fda4af;
+}
+
+@media (max-width: 640px) {
+  .user {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .profile-button,
+  .logout-button {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ===== Busca e resultados de rotas ===== */
+
+.route-card,
+.search-form,
+.route-history,
+.history-card {
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+.route-card,
+.search-form,
+.route-history {
+  padding: 20px;
+}
+
+.route-card h2,
+.route-card h3,
+.search-form h2,
+.search-form h3,
+.route-history h2,
+.route-history h3 {
+  color: #172033;
+  letter-spacing: -0.02em;
+}
+
+.route-card p,
+.route-history p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.search-form button,
+.route-card button,
+.route-history button {
+  min-height: 40px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .route-card,
+  .search-form,
+  .route-history {
+    padding: 16px;
+    border-radius: 12px;
+  }
+}
+
+/* ===== Responsividade geral do ROTA+ ===== */
+
+@media (max-width: 768px) {
+  #root {
+    width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  main {
+    min-width: 0;
+  }
+
+  .user {
+    width: 100%;
+  }
+
+  .profile-button,
+  .logout-button {
+    min-height: 40px;
+  }
+
+  .profile-panel {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+
+  .route-card,
+  .search-form,
+  .route-history {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    min-width: 0;
+  }
+
+  button {
+    max-width: 100%;
+  }
+}
+
+/* ===== Correção do layout mobile ===== */
+
+@media (max-width: 768px) {
+  body {
+    min-width: 320px;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  header h1,
+  header .logo {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+
+  .user {
+    width: auto;
+    max-width: 100%;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .profile-button {
+    max-width: 190px;
+    overflow-wrap: anywhere;
+  }
+
+  main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 16px;
+  }
+
+  .route-card,
+  .search-form,
+  .route-history {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    align-items: flex-start;
+  }
+
+  .user {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .profile-button {
+    max-width: calc(100% - 75px);
+  }
+}
+
+/* ===== Layout principal do ROTA+ ===== */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.navbar {
+  width: 100%;
+  min-height: 72px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #2563eb;
+}
+
+.main-content {
+  width: min(100% - 48px, 1200px);
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.route-area {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 24px;
+}
+
+.map-container {
+  width: 100%;
+  min-width: 0;
+  min-height: 360px;
+  height: 55vh;
+  max-height: 640px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.map-container > * {
+  width: 100%;
+  height: 100%;
+}
+
+.search-summary {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+.search-summary-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.search-summary-content > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 24px 16px 32px;
+  }
+
+  .route-area {
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .map-container {
+    height: 420px;
+    min-height: 320px;
+    max-height: none;
+  }
+
+  .search-summary {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-summary-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .map-container {
+    height: 350px;
+    min-height: 300px;
+  }
+}
+
+/* ===== Formulário de busca ROTA+ ===== */
+
+.search-section {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.search-section h1 {
+  margin: 0 0 10px;
+  color: #172033;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.search-section .subtitle {
+  margin: 0 0 28px;
+  color: #64748b;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.search-section .input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 9px;
+  margin-bottom: 22px;
+}
+
+.search-section .input-group label {
+  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.search-section .input-group input,
+.search-section .input-group select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #172033;
+  font-size: 0.95rem;
+}
+
+.search-section .input-group input::placeholder {
+  color: #94a3b8;
+}
+
+.search-section .input-group input:focus,
+.search-section .input-group select:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.search-section .input-group button {
+  align-self: flex-start;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.search-section .input-group button:hover {
+  background: #dbeafe;
+}
+
+.search-section .route-button {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 4px;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.2);
+}
+
+.search-section .route-button:hover:not(:disabled) {
+  background: #1d4ed8;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+}
+
+.search-section button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.search-section [role="status"] {
+  margin: 4px 0 0;
+  color: #475569;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .search-section {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .search-section .subtitle {
+    margin-bottom: 22px;
+  }
+
+  .search-section .input-group {
+    margin-bottom: 18px;
+  }
+
+  .search-section .input-group button {
+    width: 100%;
+  }
+}
+
+/* ===== Resumo da rota ===== */
+
+.search-summary {
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.search-summary h2 {
+  margin: 0 0 20px;
+  color: #172033;
+  font-size: 1.25rem;
+  font-weight: 750;
+}
+
+.search-summary-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.search-summary-content > div {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.search-summary-content span {
+  display: block;
+  margin-bottom: 8px;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.search-summary-content strong {
+  display: block;
+  color: #172033;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.route-info {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.search-summary-content .route-info {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.route-info-item {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  background: #eff6ff;
+}
+
+.route-info-item strong {
+  color: #1d4ed8;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+@media (max-width: 480px) {
+  .search-summary {
+    padding: 16px;
+  }
+
+  .search-summary-content,
+  .route-info {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .route-info {
+    grid-column: auto;
+  }
+}
+
+/* ===== Histórico de rotas ===== */
+
+.route-history {
+  width: 100%;
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.route-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.route-history-header h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 1.25rem;
+  font-weight: 750;
+}
+
+.route-history-header button {
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fff1f2;
+  color: #be123c;
+  font-weight: 600;
+}
+
+.route-history-header button:hover {
+  background: #ffe4e6;
+}
+
+.route-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.route-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #f8fafc;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.route-history-item:hover {
+  border-color: #bfdbfe;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.route-history-item > div:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.route-history-item strong {
+  color: #172033;
+  line-height: 1.6;
+}
+
+.route-history-arrow {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.route-history-item p {
+  margin: 8px 0 4px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.route-history-item small {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.route-history-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.route-history-actions button {
+  min-height: 40px;
+  padding: 9px 13px;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.route-history-actions button:hover {
+  background: #dbeafe;
+}
+
+.route-history-actions .delete-route-button {
+  border-color: #fecaca;
+  background: #fff1f2;
+  color: #be123c;
+}
+
+.route-history-actions .delete-route-button:hover {
+  background: #ffe4e6;
+}
+
+@media (max-width: 640px) {
+  .route-history {
+    padding: 16px;
+  }
+
+  .route-history-item {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .route-history-actions {
+    width: 100%;
+  }
+
+  .route-history-actions button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 380px) {
+  .route-history-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .route-history-header button {
+    width: 100%;
+  }
+
+  .route-history-actions {
+    flex-direction: column;
+  }
+}}
